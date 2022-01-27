@@ -5,7 +5,7 @@
 public class Room {
   private int maxOccupancy;
   private double price;
-  private int bookGuests;
+  private int bookedGuests = 0;
 
   /**
    * Creates a new Room object based on the type of
@@ -15,6 +15,12 @@ public class Room {
    * @throws IllegalArgumentException Thrown if price is a negative value
    */
   public Room(RoomType room, double price) throws IllegalArgumentException{
+    if (price < 0) throw new IllegalArgumentException();
+
+    else{
+      this.price = price;
+      this.maxOccupancy = room.getMaxOccupancy();
+      }
   }
 
   /**
@@ -24,7 +30,7 @@ public class Room {
    * @return Returns true if the room is available, else false
    */
   public boolean isAvailable(){
-    return true;
+    return bookedGuests == 0 ? true : false;
   }
 
   /**
@@ -34,7 +40,7 @@ public class Room {
    * @param guests The number of guests to be assigned to the room.
    */
   public void bookRoom(int guests){
-
+    bookedGuests = guests <= maxOccupancy && guests > 0 && isAvailable() ? guests : bookedGuests;
   }
 
   /**
@@ -43,6 +49,6 @@ public class Room {
    * @return Returns the number of guests currently assigned to a room.
    */
   public int getNumberOfGuests(){
-    return 0;
+    return bookedGuests;
   }
 }
