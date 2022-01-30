@@ -1,3 +1,5 @@
+package hw2;
+
 public enum RoomType {
   SINGLE_ROOM(1),
   DOUBLE_ROOM(2),

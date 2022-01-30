@@ -1,11 +1,13 @@
+package hw2;
+
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 /**
- * RoomTest verifies that all of the
- * methods in the Room class are behaving as
+ * hw2.RoomTest verifies that all of the
+ * methods in the hw2.Room class are behaving as
  * intended when given valid and invalid
  * inputs.
  */
@@ -15,7 +17,7 @@ public class RoomTest {
   private Room testFamilyRoom;
 
   /**
-   * Creates one of each type of Room to be used
+   * Creates one of each type of hw2.Room to be used
    * in each of the subsequent tests.
    */
   @Before
@@ -30,8 +32,8 @@ public class RoomTest {
   }
 
   /**
-   * This test makes sure the Room constructor
-   * properly creates new Room objects.
+   * This test makes sure the hw2.Room constructor
+   * properly creates new hw2.Room objects.
    */
   @Test
   public void testRoomConstructor(){

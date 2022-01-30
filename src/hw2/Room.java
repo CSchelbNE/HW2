@@ -1,3 +1,5 @@
+package hw2;
+
 /**
  * The room class represents a room that's part
  * of a hotel's booking system.
@@ -8,7 +10,7 @@ public class Room {
   private int bookedGuests = 0;
 
   /**
-   * Creates a new Room object based on the type of
+   * Creates a new hw2.Room object based on the type of
    * room passed in.
    * @param room the type of room being booked
    * @param price the price of the room
