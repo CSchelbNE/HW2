@@ -1,26 +1,27 @@
 package hw2;
 
-import javax.swing.*;
-
 /**
- *
+ * This class represents a person+email
+ * combination who has mail addressed to them.
  */
 public class Recipient {
-  private String firstName;
-  private String lastName;
-  private String emailAddress;
+  private final String firstName;
+  private final String lastName;
+  private final String emailAddress;
 
   /**
-   * @param firstName
-   * @param lastName
-   * @param emailAddress
-   * @throws IllegalArgumentException
+   * Initializes a new Recipient object. All of the parameters must not be null.
+   * @param firstName The recipient's first name.
+   * @param lastName The recipient's last name.
+   * @param emailAddress The recipient's email address.
+   * @throws IllegalArgumentException If any of the parameters are null or "" throw an exception.
    */
-  public Recipient(String firstName, String lastName, String emailAddress) throws
-          IllegalArgumentException{
-    String[] input = {firstName,lastName,emailAddress};
-    if (isNull(input)) throw new IllegalArgumentException();
-    else{
+  public Recipient(String firstName, String lastName, String emailAddress)
+          throws IllegalArgumentException {
+    String[] input = {firstName, lastName, emailAddress};
+    // Checks if any of the input data is null or ""
+    if (isNull(input)) throw new IllegalArgumentException("Cannot have null fields.");
+    else {
       this.firstName = firstName;
       this.lastName = lastName;
       this.emailAddress = emailAddress;
@@ -28,22 +29,52 @@ public class Recipient {
   }
 
   /**
-   * @param input
-   * @return
+   * Gets the recipient's first name.
+   * @return Returns the firstName attribute.
    */
-  private boolean isNull(String[] input){
-    for (int i=0;i<3;i++){
-      if (input[i] == null || input[i] == "" ? true : false) return true;
+  public String getFirstName() {
+    return firstName;
+  }
+
+  /**
+   * Gets the recipient's last name.
+   * @return Returns the lastName attribute.
+   */
+  public String getLastName() {
+    return lastName;
+  }
+
+  /**
+   * Gets the recipient's email address.
+   * @return Returns the emailAddress attribute.
+   */
+  public String getEmailAddress() {
+    return emailAddress;
+  }
+
+  /**
+   * Checks to see if a string is = to
+   * "" or if the value is null.
+   *
+   * @param input An input array containing strings to be validated.
+   * @return Returns true if any index of input is null, otherwise false.
+   */
+  private boolean isNull(String[] input) {
+    for (int i = 0; i < 3; i++) {
+      if (input[i] == null || input[i] == "") return true;
     }
     return false;
   }
 
 
   /**
-   * @return
+   * Creates a string representation of the recipient in the
+   * format Firstname Lastname Email:emailAddress.
+   *
+   * @return Returns a string representation of the object.
    */
   @Override
-  public String toString(){
-    return String.format("%s %s Email:%s",firstName,lastName,emailAddress);
+  public String toString() {
+    return String.format("%s %s Email:%s", firstName, lastName, emailAddress);
   }
 }
